@@ -37,7 +37,8 @@ SYSTEM_MACROS:
 
 DMA_WAIT:          MACRO
 @LOOP\@            BTST 1, VDP_STATUS+1 // ALLOCATE A BIT NUMBER TO THE DESTINATION OF THE VDP_STATUS
-                   BNE.S @LOOP\@ // JUMP TO THIS VARIABLE IF THE ZERO FLAG IS CLEAR; END THE LOOP AFTER
+                   BNE.S @LOOP\@ // JUMP TO THIS VARIABLE IF THE ZERO FLAG IS CLEAR INSIDE OF THE SUPERVISOR STATE 
+                                // END THE LOOP AFTER
                    ENDM
 
 ;-----------------------------------------------------------
