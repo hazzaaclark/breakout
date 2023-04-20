@@ -10,6 +10,8 @@
 ;        TO HELP PARSE INFORMATION THROUGH THE CONSOLE
 ;----------------------------------------------------------
 
+.GLOBAL: SYSTEM
+
 .SECTION: REGISTERS
 
 ;-----------------------------------------------------------
