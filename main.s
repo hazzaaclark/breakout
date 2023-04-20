@@ -11,9 +11,9 @@
 
 INCLUDE: system.s
 
-.SECTION .TEXT
+.SECTION: .TEXT
 
-.GLOBAL _MAIN
+.GLOBAL: _MAIN
 
 _MAIN:
 
