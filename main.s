@@ -9,7 +9,8 @@
 ;                     THE OTHER FILES
 ;----------------------------------------------------------
 
-INCLUDE: system.s
+INCLUDE: SYSTEM
+INCLUDE: GAME_LOGIC
 
 .SECTION: .TEXT
 
