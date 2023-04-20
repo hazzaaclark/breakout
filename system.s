@@ -10,6 +10,10 @@
 ;        TO HELP PARSE INFORMATION THROUGH THE CONSOLE
 ;----------------------------------------------------------
 
+;----------------------------------------------------------
+; DOCUMENTATION USED: https://www.nxp.com/docs/en/reference-manual/MC68000UM.pdf
+;----------------------------------------------------------
+
 .GLOBAL: SYSTEM
 
 .SECTION: REGISTERS
