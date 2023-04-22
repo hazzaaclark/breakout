@@ -19,4 +19,7 @@ extern: DRAW_RECTANGLES
 extern: DRAW_BALL
 extern: GAME_START
 
+PLAYER_X:        RS.L    0
+PLAYER_Y:        RS.W    1
+
 ;----------------------------------------------------------
