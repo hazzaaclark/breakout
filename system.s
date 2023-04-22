@@ -19,8 +19,6 @@
 
 .GLOBAL: SYSTEM
 
-.SECTION: REGISTERS
-
 ;-----------------------------------------------------------
 
 REGISTERS:
@@ -37,11 +35,11 @@ VSRAM:       EQU   %01* BIG_ENDIAN +% 0000 * LITLE_ENDIAN
 CRAM:        EQU   %11* BIG_ENDIAN +% 0000 * LITLE_ENDIAN
 STACK_SIZE:  EQU   1024
 
-;-----------------------------------------------------------
+VBLANK_ON:   RS.W  1
 
 ;-----------------------------------------------------------
 
-.SECTION: SYSTEM_MACROS
+;-----------------------------------------------------------
 
 SYSTEM_MACROS:
 
@@ -60,4 +58,14 @@ DMA_CONTROL:       MACRO
                    SWAP \2 ;; SWAP INTO THE FIRST 16 BITS
                    ENDM
 
+;; CREATE A VERTICAL BLANK IRQ TO MOVE THE VALUE FROM ONE VARIABLE
+;; AND COMPARE THAT BETWEEN THE DESTINATION OF THE IRQ AND THE SOURCE
+;; END THE LOOP ONCE THE ZERO FLAG IS SET USING THE BRANCH IF EQUAL DIRECTIVE
+
+
+VBLANK_WAIT:       MACRO
+                   MOVE.W #0, VBLANK_ON
+@LOOP\@            CMP.W  #0  VBLANK_ON
+                   BEQ.S  @LOOP\@
+                   ENDM
 ;-----------------------------------------------------------
