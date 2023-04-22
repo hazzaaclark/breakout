@@ -35,8 +35,6 @@ VSRAM:       EQU   %01* BIG_ENDIAN +% 0000 * LITLE_ENDIAN
 CRAM:        EQU   %11* BIG_ENDIAN +% 0000 * LITLE_ENDIAN
 STACK_SIZE:  EQU   1024
 
-VBLANK_ON:   RS.W  1
-
 ;-----------------------------------------------------------
 
 ;-----------------------------------------------------------
@@ -66,7 +64,7 @@ DMA_DUMP_DATA:     MACRO
                    ;; DETERMINES IF THE LENGTH IS LESS THAN 16 AND MORE THAN 8, THE VALUE WILL BE STORED ACCORDINGLY
                    BEQ.S DMA_DUMP_DATA
                    ENDM
-                   
+
 ;; CREATE A VERTICAL BLANK IRQ TO MOVE THE VALUE FROM ONE VARIABLE
 ;; AND COMPARE THAT BETWEEN THE DESTINATION OF THE IRQ AND THE SOURCE
 ;; END THE LOOP ONCE THE ZERO FLAG IS SET USING THE BRANCH IF EQUAL DIRECTIVE
@@ -78,3 +76,12 @@ VBLANK_WAIT:       MACRO
                    BEQ.S  @LOOP\@
                    ENDM
 ;-----------------------------------------------------------
+
+;-----------------------------------------------------------
+
+SYSTEM_VARIABLES:
+
+SYSTEM_RAM:   RS.B     0
+SYSTEM_RESET: RSSET    SYSTEM_RAM
+
+VBLANK_ON:   RS.W      1
