@@ -11,6 +11,7 @@
 
 INCLUDE: SYSTEM
 INCLUDE: GAME_LOGIC
+INCLUDE: CARTRIDGE
 
 .SECTION: .TEXT
 
@@ -40,7 +41,7 @@ VDP_INIT:        MOVE.L    #0    PLAYER_X
                  DMA_DUMP_DATA    #4*32, $20 ;; DUMP THE DMA CHARACTERS BY 32 BYTES INTO REGISTER 20     
 
 ;----------------------------------------------------------
-
+ 
 
 
 MAIN:
